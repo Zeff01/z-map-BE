@@ -18,9 +18,8 @@ mongoose
     console.log("\x1b[41m%s\x1b[0m", "[FAILED] Connection to MongoDB!", err);
   });
 
-// Configure CORS options
 const corsOptions = {
-  origin: "http://localhost:3000", // Replace with your frontend origin
+  origin: "*", // Allow requests from any origin
 };
 
 app.use(cors(corsOptions));

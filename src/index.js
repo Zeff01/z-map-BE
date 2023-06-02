@@ -32,5 +32,5 @@ app.listen(process.env.PORT, () => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hey this is my API running yey! 🥳");
+  res.send("Hey this is my API running 🥳");
 });

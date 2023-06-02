@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const env = require("dotenv");
-const pinRoute = require("../routes/pins");
-const userRoute = require("../routes/users");
+const pinRoute = require("./routes/pins");
+const userRoute = require("./routes/users");
 
 const app = express();
 app.use(express.json());

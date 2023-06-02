@@ -6,6 +6,7 @@ const userRoute = require("./routes/users");
 const cors = require("cors");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 env.config();
 
@@ -18,12 +19,6 @@ mongoose
     console.log("\x1b[41m%s\x1b[0m", "[FAILED] Connection to MongoDB!", err);
   });
 
-const corsOptions = {
-  origin: "*", // Allow requests from any origin
-};
-
-app.use(cors(corsOptions));
-
 app.use("/api/pins", pinRoute);
 app.use("/api/users", userRoute);
 
@@ -32,5 +27,5 @@ app.listen(process.env.PORT, () => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hey this is my API running 🥳");
+  res.send("Hey this is my API running! 🥳");
 });

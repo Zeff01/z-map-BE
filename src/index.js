@@ -18,7 +18,12 @@ mongoose
     console.log("\x1b[41m%s\x1b[0m", "[FAILED] Connection to MongoDB!", err);
   });
 
-app.use(cors()); // Enable CORS for all routes
+// Configure CORS options
+const corsOptions = {
+  origin: "http://localhost:3000", // Replace with your frontend origin
+};
+
+app.use(cors(corsOptions));
 
 app.use("/api/pins", pinRoute);
 app.use("/api/users", userRoute);
@@ -28,5 +33,5 @@ app.listen(process.env.PORT, () => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hey this is my API running 🥳");
+  res.send("Hey this is my API running yey! 🥳");
 });

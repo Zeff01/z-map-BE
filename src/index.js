@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const env = require("dotenv");
 const pinRoute = require("./routes/pins");
 const userRoute = require("./routes/users");
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
@@ -16,6 +17,8 @@ mongoose
   .catch((err) => {
     console.log("\x1b[41m%s\x1b[0m", "[FAILED] Connection to MongoDB!", err);
   });
+
+app.use(cors()); // Enable CORS for all routes
 
 app.use("/api/pins", pinRoute);
 app.use("/api/users", userRoute);
